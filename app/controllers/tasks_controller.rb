@@ -33,7 +33,7 @@ class TasksController < ApplicationController
             flash[:success] = "Taskは正常に更新されました"
             redirect_to @task
         else
-            flash.new[:danger] = "Taskは更新されませんでした"
+            flash.now[:danger] = "Taskは更新されませんでした"
             render :edit
         end
     end
@@ -53,6 +53,6 @@ class TasksController < ApplicationController
     end    
     
     def task_params
-        params.require(:task).permit(:content)
+        params.require(:task).permit(:content, :status)
     end
 end
